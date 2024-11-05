@@ -1,0 +1,179 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f3f4f6;
+    color: #333;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Encabezado y Navegación */
+header {
+    background-color: #007acc;
+    color: #fff;
+    padding: 1rem;
+    text-align: center;
+    width: 100%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+header h1 {
+    margin-bottom: 0.5rem;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover,
+nav ul li a.active {
+    text-decoration: underline;
+    color: #ffd700;
+}
+
+/* Secciones generales */
+section {
+    padding: 2rem;
+    width: 100%;
+}
+
+/* Ajustes para el formulario de reserva */
+#buscar-vuelos form {
+    display: flex;
+    flex-direction: column;
+    max-width: 600px;
+    margin: 1.5rem auto;
+    background-color: #fff;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#buscar-vuelos label {
+    font-weight: bold;
+    margin-top: 1rem;
+}
+
+#buscar-vuelos input {
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-top: 0.5rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#buscar-vuelos input:focus {
+    outline: none;
+    border-color: #007acc;
+    box-shadow: 0 0 5px rgba(0, 122, 204, 0.5);
+}
+
+#buscar-vuelos button {
+    margin-top: 1.5rem;
+    padding: 0.7rem;
+    background-color: #007acc;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.25s ease, transform 0.25s ease;
+}
+
+#buscar-vuelos button:hover {
+    background-color: #005ea1;
+    transform: translateY(-2px);
+}
+
+/* Resultados de búsqueda de vuelos */
+#resultados-busqueda {
+    margin: 2rem auto;
+    max-width: 600px;
+    padding: 1rem;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.resultado-vuelo {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 1.5rem;
+    margin: 1rem 0;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.3s forwards;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.resultado-vuelo p {
+    margin: 0.5rem 0;
+}
+
+.resultado-vuelo button {
+    padding: 0.5rem 1rem;
+    background-color: #007acc;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.resultado-vuelo button:hover {
+    background-color: #005ea1;
+}
+
+/* Mensaje de "No hay vuelos disponibles" */
+#resultados-busqueda p {
+    font-weight: bold;
+    color: #555;
+    text-align: center;
+    margin-top: 1rem;
+}
+
+/* Pie de página */
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1rem;
+    width: 100%;
+    margin-top: auto;
+}
+
+/* Responsividad para pantallas pequeñas */
+@media (max-width: 600px) {
+    #buscar-vuelos form, #resultados-busqueda {
+        width: 90%;
+        padding: 1rem;
+    }
+}
