@@ -7,7 +7,7 @@ $host = "autorack.proxy.rlwy.net";
 $database = "railway";
 $user = "root";
 $password = "jTkQUOKnFggBChnTHtPNEtTmuaJisuBx";
-$port = 3306;
+$port = 12881;
 
 // Crear la conexión
 $conn = new mysqli($host, $user, $password, $database, $port);
