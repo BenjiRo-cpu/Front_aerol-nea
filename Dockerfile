@@ -9,7 +9,7 @@ RUN chown -R www-data:www-data /var/www/html && \
     chmod -R 755 /var/www/html
 
 # Expone el puerto 80
-EXPOSE 3306
+EXPOSE 80
 
 # Opcional: Instala extensiones de PHP adicionales si tu aplicación las necesita
 RUN docker-php-ext-install mysqli
