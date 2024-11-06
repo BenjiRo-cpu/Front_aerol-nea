@@ -2,12 +2,12 @@
 // Establecer la cabecera para devolver JSON (opcional, dependiendo de cómo manejes las respuestas)
 header('Content-Type: application/json');
 
-// Configuración de la base de datos usando variables de entorno
-$host = getenv('DB_HOST');
-$database = getenv('DB_NAME');
-$user = getenv('DB_USER');
-$password = getenv('DB_PASSWORD');
-$port = getenv('DB_PORT');
+// Configuración de la base de datos usando las variables de entorno que has configurado en Railway
+$host = getenv('MYSQLHOST');
+$database = getenv('MYSQLDATABASE');
+$user = getenv('MYSQLUSER');
+$password = getenv('MYSQLPASSWORD');
+$port = getenv('MYSQLPORT');
 
 // Crear la conexión
 $conn = new mysqli($host, $user, $password, $database, $port);
