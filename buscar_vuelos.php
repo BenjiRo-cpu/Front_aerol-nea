@@ -17,7 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         // Preparar y ejecutar la consulta
         $sql = "SELECT * FROM vuelos WHERE Origen = ? AND Destino = ? AND Fecha_Salida = ?";
         if ($stmt = $conn->prepare($sql)) {
-            $stmt->bind_param($origen, $destino, $fecha);
+            $stmt->bind_param('sss', '$origen', '$destino', '$fecha');
             
             if ($stmt->execute()) {
                 $result = $stmt->get_result();
