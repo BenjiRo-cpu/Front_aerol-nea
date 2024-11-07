@@ -8,16 +8,16 @@ header('Content-Type: application/json');
 // Verificar si los datos fueron enviados desde el formulario
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     // Validar que los campos necesarios estén presentes
-    if (isset($_POST['origen'], $_POST['destino'], $_POST['fecha'])) {
+    if (isset($_POST['origen'], $_POST['destino'])) {
         // Recibir y sanitizar los datos del formulario
         $origen = trim($_POST['origen']);
         $destino = trim($_POST['destino']);
         $fecha = trim($_POST['fecha']);
 
         // Preparar y ejecutar la consulta
-        $sql = "SELECT * FROM vuelos WHERE Origen = ? AND Destino = ? AND Fecha_Salida = ?";
+        $sql = "SELECT * FROM vuelos WHERE Origen = ? AND Destino = ?";
         if ($stmt = $conn->prepare($sql)) {
-            $stmt->bind_param('sss', '$origen', '$destino', '$fecha');
+            $stmt->bind_param('sss', "$origen", "$destino");
             
             if ($stmt->execute()) {
                 $result = $stmt->get_result();
