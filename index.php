@@ -78,9 +78,9 @@
         'Content-Type': 'application/json'  // Indica que los datos enviados están en formato JSON
     },
     body: JSON.stringify({
-        origen: 'Ciudad de México',
-        destino: 'Cancún',
-        fecha: '2024-12-01'
+        origen,
+        destino,
+        fecha
     })
 })
 .then(response => {
