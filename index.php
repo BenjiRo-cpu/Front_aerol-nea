@@ -73,38 +73,27 @@
             
             // Hacer una petición AJAX a buscar_vuelos.php
             fetch('buscar_vuelos.php', {
-                method: 'POST',
-                headers: ({
-                    'Content-Type': 'application/json'
-                }),
-                body: JSON.stringify({ origen, destino, fecha })
-            })
-            .then(response => response.json())
-            .then(data => {
-            console.log(data);
-                const resultadosDiv = document.getElementById('resultados-busqueda');
-                resultadosDiv.innerHTML = ''; // Limpiar resultados anteriores
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json'  // Indica que los datos enviados están en formato JSON
+    },
+    body: JSON.stringify({
+        origen: 'Ciudad de México',
+        destino: 'Cancún',
+        fecha: '2024-12-01'
+    })
+})
+.then(response => {
+    console.log('Respuesta del servidor:', response);
+    return response.json();  // Convertir la respuesta JSON
+})
+.then(data => {
+    console.log('Datos recibidos del servidor:', data);
+})
+.catch(error => {
+    console.error('Error:', error);
+});
 
-                if (data.length > 0) {
-                    data.forEach(vuelo => {
-                        const vueloDiv = document.createElement('div');
-                        vueloDiv.classList.add('resultado-vuelo');
-                        vueloDiv.innerHTML = `
-                            <p><strong>Origen:</strong> ${vuelo.origen}</p>
-                            <p><strong>Destino:</strong> ${vuelo.destino}</p>
-                            <p><strong>Fecha:</strong> ${vuelo.fecha}</p>
-                            <p><strong>Precio:</strong> ${vuelo.precio}</p>
-                        `;
-                        resultadosDiv.appendChild(vueloDiv);
-                    });
-                } else {
-                    resultadosDiv.innerHTML = '<p>No se encontraron vuelos para los criterios especificados.</p>';
-                }
-            })
-            .catch(error => {
-                console.error('Error al buscar vuelos:', error);
-                document.getElementById('resultados-busqueda').innerHTML = '<p>Ocurrió un error al buscar vuelos. Por favor intenta de nuevo.</p>';
-            });
         });
     </script>
 </body>
