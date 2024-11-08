@@ -83,6 +83,7 @@ include 'conexion.php';
             })
             .then(response => response.json())
             .then(data => {
+            console.log(data);
                 const resultadosDiv = document.getElementById('resultados-busqueda');
                 resultadosDiv.innerHTML = ''; // Limpiar resultados anteriores
 
