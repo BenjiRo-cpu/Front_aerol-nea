@@ -1,5 +1,4 @@
-<?php
-include 'conexion.php';
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -110,4 +109,3 @@ include 'conexion.php';
     </script>
 </body>
 </html>
-?>
