@@ -74,9 +74,9 @@
             // Hacer una petición AJAX a buscar_vuelos.php
             fetch('buscar_vuelos.php', {
                 method: 'POST',
-                headers: {
+                headers: ({
                     'Content-Type': 'application/json'
-                },
+                }),
                 body: JSON.stringify({ origen, destino, fecha })
             })
             .then(response => response.json())
